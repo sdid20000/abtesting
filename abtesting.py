@@ -148,7 +148,7 @@ def get_expected_grid(observed_grid):
     HINT: To clean up this calculation, consider filling in the optional helper functions below!
     '''
     tot_sum = total_sum(observed_grid)
-    expected_grid = observed_grid
+    expected_grid = [[0 for i in range(len(observed_grid[0]))] for j in range(len(observed_grid))]
     for i in range(0, len(observed_grid)):
         for j in range(0, len(observed_grid[0])):
             expected_grid[i][j] = calculate_expected(
@@ -227,7 +227,7 @@ b_t3_list = data_to_num_list(b3)
 print(get_t_score(a_t3_list, b_t3_list))  # this should be -2.88969
 print(perform_2_sample_t_test(a_t3_list, b_t3_list))  # this should be .005091
 """
-
+"""
 # chi2_test 1:
 a_c1_list = data_to_num_list(a_count_1)
 b_c1_list = data_to_num_list(b_count_1)
@@ -236,6 +236,7 @@ print(chi2_value(c1_observed_grid))  # this should be 4.103536
 # this should be .0427939
 print(perform_chi2_homogeneity_test(c1_observed_grid))
 """
+"""
 # chi2_test 2:
 a_c2_list = data_to_num_list(a_count_2)
 b_c2_list = data_to_num_list(b_count_2)
@@ -243,7 +244,8 @@ c2_observed_grid = [a_c2_list, b_c2_list]
 print(chi2_value(c2_observed_grid))  # this should be 33.86444
 print(perform_chi2_homogeneity_test(c2_observed_grid))  # this should be 0.0000
 # Again, why do you think this is? Take a peek at a_count_2 and b_count_2 in abtesting_test.py :)
-
+"""
+"""
 # chi2_test 3:
 a_c3_list = data_to_num_list(a_count_3)
 b_c3_list = data_to_num_list(b_count_3)
@@ -252,3 +254,14 @@ print(chi2_value(c3_observed_grid))  # this should be .3119402
 # this should be .57649202
 print(perform_chi2_homogeneity_test(c3_observed_grid))
 """
+
+data1 = data_to_num_list("13948 69386 4184 255521 11189 6857 4501 3321")
+data2 = data_to_num_list("25611 6055 10513 15083 17855 193686 10647 400462 46128 22919 36398 9191 5794")
+print(data1)
+print(data2)
+print(get_t_score(data1, data2))  
+print(perform_2_sample_t_test(data1, data2))
+
+data3 = [[5,3],[6,7]]
+print(chi2_value(data3))
+print(perform_chi2_homogeneity_test(data3))
